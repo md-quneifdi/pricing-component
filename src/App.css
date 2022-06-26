@@ -1,38 +1,225 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pricing-box {
+  background-color: hsl(240, 78%, 98%);
+  width: 90%;
+  max-width: 1300px;
+  position: relative;
+  margin: 5rem auto;
+  box-shadow: 0px 0px 12px 5px #e7e3e3;
+  z-index: 2;
+  transform: translateY(-30%);
+}
+
+.pricing-box::before {
+  content: url(../public/images/bg-top.svg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.pricing-box::after {
+  content: url(../public/images/bg-bottom.svg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.title-part {
+  margin: 30% auto;
+  margin-bottom: 1%;
+  width: 30%;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
+  color: hsl(232, 13%, 33%);
+  padding: 5% 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title-part h2 {
+  padding: 35px;
+  font-size: 2.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title-part .options {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.title-part .options span {
+  color: hsl(233, 13%, 49%);
+}
+
+/* options cards  */
+.pricing-cards {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 100;
+  position: relative;
+  padding: 50px 0 100px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.pricing-cards .basic-card:nth-child(2) {
+  transform: scale(1.1);
+  background-image: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.pricing-cards .basic-card:nth-child(2) .info li {
+  color: #fff;
+}
+
+.pricing-cards .basic-card:nth-child(2) .price {
+  color: #fff;
+}
+
+.pricing-cards .basic-card:nth-child(2) .title {
+  color: #fff;
+}
+
+.pricing-cards .basic-card:nth-child(2) .btn {
+  background-color: #fff;
+  color: hsl(237, 63%, 64%);
+}
+
+.pricing-cards .basic-card:nth-child(2) .btn:hover {
+  border-color: #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+.basic-card {
+  background-color: #fff;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  border-radius: 8px;
+  width: 328px;
+}
+
+.basic-card .title {
+  font-size: 1.5rem;
+  color: hsl(233, 13%, 49%);
+  padding: 15px;
+}
+
+.basic-card .price {
+  font-family: 'Montserrat', sans-serif;
+  color: hsl(232, 13%, 33%);
+  font-size: 4.2rem;
+  padding: 20px 0;
+  position: relative;
+}
+
+.basic-card .price .p-span {
+  font-size: 4.2rem;
+  margin-left: 10px;
+}
+
+.basic-card .price .d-sign {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  position: absolute;
+  top: 32%;
+  margin-right: 30px;
+  transform: translateX(-78%);
+}
+
+.basic-card .info {
+  list-style: none;
+  padding: 5px 20px;
+}
+
+.basic-card .info li {
+  padding: 20px;
+  border-bottom: 1px solid hsl(234, 14%, 74%);
+  color: hsl(233, 13%, 49%);
+  letter-spacing: 1px;
+}
+
+.basic-card .info li:first-child {
+  border-top: 1px solid hsl(234, 14%, 74%);
+}
+
+.basic-card .btn {
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  width: 87%;
+  height: 10%;
+  line-height: 10%;
+  border-radius: 7px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  word-break: keep-all;
+  font-weight: 700;
+  color: hsl(240, 78%, 98%);
+  margin: 30px 0 40px 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.7s;
+}
+
+.basic-card:first-child .btn,
+.basic-card:last-child .btn {
+  background-image: linear-gradient(45deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+
+.basic-card:first-child .btn:hover,
+.basic-card:last-child .btn:hover {
+  border-color: hsl(234, 14%, 74%);
+  background-color: transparent;
+  background-image: none;
+  color: hsl(237, 63%, 64%);
+}
+
+@media (max-width: 375px) {
+  .pricing-box {
+    width: 100%;
+    transform: translateY(-1%);
   }
-  to {
-    transform: rotate(360deg);
+
+  .pricing-box::before {
+    right: -50%;
+  }
+
+  .pricing-box::after {
+    left: -20%;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+  }
+
+  .title-part {
+    width: 98%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .title-part h2 {
+    font-size: 2.5rem;
+  }
+
+  .title-part .options {
+    padding: 0 45px;
+  }
+
+  .basic-card {
+    margin: 0 auto 3rem;
+  }
+
+  .pricing-cards .basic-card:nth-child(2) {
+    transform: scale(1);
+  }
+
+  .basic-card .btn {
+    padding: 20px;
   }
 }
