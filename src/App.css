@@ -223,4 +223,8 @@
   .basic-card .btn {
     padding: 20px;
   }
+
+  .pricing-box::after {
+    display: none;
+  }
 }
